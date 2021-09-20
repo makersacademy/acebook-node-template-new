@@ -32,7 +32,7 @@ REPLACE THIS TEXT WITH A LINK TO YOUR CARD WALL
 
 ### Set up your project
 
-1. Fork this repository
+1. Fork this repository into the sub-group for your cohort (it should be a sub-group of `makers-students` and be named something like `your-cohort-name-students`).
 1. Rename your fork to `acebook-<team name>`
 1. Clone your fork to your local machine
 1. Install Node.js dependencies
@@ -80,3 +80,13 @@ npm run start:test
 ```
 This starts the server on port `3030` and uses the `acebook_test` MongoDB database,
 so that integration tests do not interact with the development server.
+
+## Final note
+
+If you're new to using Node, you may be wondering where all of these commands above are defined.
+Have a look at the `scripts` section of the `package.json` file in this repo.
+It'll help with your understanding of what is going on in the `.gitlab-ci.yml` file.
+
+## Additional resources
+
+- [The package.json guide](https://nodejs.dev/learn/the-package-json-guide)
