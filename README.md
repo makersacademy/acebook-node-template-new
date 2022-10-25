@@ -39,6 +39,18 @@ REPLACE THIS TEXT WITH A LINK TO YOUR CARD WALL
     ```
     npm install
     ```
+<details>
+  <summary><b>Gyp error on npm install?</b></summary>
+  If you're getting the following error:
+    ```
+    AttributeError: module 'collections' has no attribute 'MutableSet'
+    Error: `gyp` failed with exit code: 1
+    ``` 
+try installing this package separately before running `npm install`:
+    ```
+    npm --build-from-source install node-pre-gyp
+    ```
+</details>
 1. Install an ESLint plugin for your editor. For example: [linter-eslint](https://github.com/AtomLinter/linter-eslint) for Atom.
 1. Install MongoDB
     ```
