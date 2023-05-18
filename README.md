@@ -11,10 +11,6 @@ It uses:
 - [Jest](https://jestjs.io/) for testing.
 - [Cypress](https://www.cypress.io/) for end-to-end testing.
 
-## Card wall
-
-REPLACE THIS TEXT WITH A LINK TO YOUR CARD WALL
-
 ## Quickstart
 
 ### Install Node.js
