@@ -1,0 +1,27 @@
+image: node:lts
+
+services:
+  - name: mongo:latest
+    alias: mongodb
+
+variables:
+  MONGODB_URL: mongodb://mongodb:27017/acebook_test
+
+stages:
+  - test
+
+before_script:
+  - npm ci
+
+test_unit:
+  stage: test
+  script:
+    - npm run lint
+    - npm run test:unit
+
+test_integration:
+  image: cypress/base:latest
+  stage: test
+  script:
+    - npm run start:ci &
+    - npm run test:integration

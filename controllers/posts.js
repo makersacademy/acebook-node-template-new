@@ -1,23 +1,17 @@
-var Post = require('../models/post');
+const Post = require('../models/post');
 
-var PostsController = {
-  Index: function(req, res) {
-    Post.find(function(err, posts) {
-      if (err) { throw err; }
-
-      res.render('posts/index', { posts: posts });
-    });
+const PostsController = {
+  Index: async function(req, res) {
+    const posts = await Post.find();
+    res.render('posts/index', { posts: posts });
   },
   New: function(req, res) {
     res.render('posts/new', {});
   },
-  Create: function(req, res) {
-    var post = new Post(req.body);
-    post.save(function(err) {
-      if (err) { throw err; }
-
-      res.status(201).redirect('/posts');
-    });
+  Create: async function(req, res) {
+    const post = new Post(req.body);
+    await post.save();
+    res.status(201).redirect('/posts');
   }
 };
 

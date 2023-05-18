@@ -21,21 +21,21 @@ REPLACE THIS TEXT WITH A LINK TO YOUR CARD WALL
 
 1. Install Node Version Manager (NVM)
     ```
-    brew install nvm
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
     ```
-    Then follow the instructions to update your `~/.bash_profile`.
-1. Open a new terminal
-1. Install the latest long term support (LTS) version of [Node.js](https://nodejs.org/en/), currently `12.14.1`.
+    
+2. Open a new terminal
+3. Install the latest long term support (LTS) version of [Node.js](https://nodejs.org/en/).
     ```
-    nvm install 12.14.1
+    nvm install --lts
     ```
 
 ### Set up your project
 
 1. Fork this repository into the sub-group for your cohort (it should be a sub-group of `makers-students` and be named something like `your-cohort-name-students`).
-1. Rename your fork to `acebook-<team name>`
-1. Clone your fork to your local machine
-1. Install Node.js dependencies
+2. Rename your fork to `acebook-<team name>`
+3. Clone your fork to your local machine
+4. Install Node.js dependencies
     ```
     npm install
     ```
@@ -47,30 +47,35 @@ REPLACE THIS TEXT WITH A LINK TO YOUR CARD WALL
         try installing this package separately before running `npm install`: <br>
             <code>npm --build-from-source install node-pre-gyp<code>
     </details><br>
-1. Install an ESLint plugin for your editor. For example: [linter-eslint](https://github.com/AtomLinter/linter-eslint) for Atom.
-1. Install MongoDB
-    ```
-    brew tap mongodb/brew
-    brew install mongodb-community@4.2
-    ```
-1. Start MongoDB
-    ```
-    brew services start mongodb-community@4.2
+5. Install an ESLint plugin for your editor. For example: [VSCode ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) for Atom.
+6. Start a MongoDB database using Docker
+    ```shell
+    ; docker run -p 27017:27017 mongo
+    
+    # Or in the background
+    ; docker run -d -p 27017:27017 mongo
+
+    # And if you want to connect to it via the CLI
+    ; brew install mongosh
+    ; mongosh
     ```
 
 ### Start
 
 1. Start the server
-    ```
-    npm start
+    ```shell
+    ; npm start
     ```
 1. Browse to [http://localhost:3000](http://localhost:3000)
 
 ### Test
 
 * Run all tests
-    ```
-    npm test
+    ```shell
+    ; npm run start:test
+
+    # And then, in another terminal...
+    ; npm test
     ```
 * Run a check
     ```bash
@@ -83,9 +88,11 @@ REPLACE THIS TEXT WITH A LINK TO YOUR CARD WALL
 
 The server must be running locally with test configuration for the
 integration tests to pass.
+
+```shell
+; npm run start:test
 ```
-npm run start:test
-```
+
 This starts the server on port `3030` and uses the `acebook_test` MongoDB database,
 so that integration tests do not interact with the development server.
 
